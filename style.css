@@ -324,22 +324,45 @@ h2 {
   box-shadow: none;
 }
 
-.install-hint {
-  background: var(--lilac);
-  color: #2a1b2e;
-  --ink: #2a1b2e;
+.install-dialog {
+  width: min(90vw, 400px);
+  margin: auto;
+  padding: 18px 20px;
+  background: var(--paper);
+  color: var(--ink);
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
+  box-shadow: var(--offset) var(--offset) 0 var(--edge);
+}
+
+.install-dialog::backdrop {
+  background: rgba(42, 27, 46, 0.55);
+}
+
+.install-dialog form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 12px;
 }
 
-.install-hint p {
+.install-dialog h2,
+.install-dialog p {
   margin: 0;
 }
 
-.install-hint .text-button {
-  text-decoration-color: var(--pink);
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 1.3em;
+  height: 1.3em;
+  margin: 0;
+  accent-color: #ff5fa2;
 }
 
 .share-icon {
@@ -403,12 +426,13 @@ h2 {
     border-color: var(--pink);
   }
 
-  .install-hint {
-    background: var(--paper);
-    color: var(--ink);
-    --ink: #fff1f6;
+  .install-dialog {
     border-color: var(--lilac);
     box-shadow: var(--offset) var(--offset) 0 var(--lilac);
+  }
+
+  .install-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
   }
 
   .add-form {

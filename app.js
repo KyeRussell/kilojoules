@@ -137,20 +137,21 @@
 
   render();
 
-  // iOS has no install prompt API, so show a hint when running in Safari
-  // on an iPhone or iPad rather than from the home screen.
-  const installHint = document.getElementById("install-hint");
+  // iOS has no install prompt API, so explain how to install when running
+  // in Safari on an iPhone or iPad rather than from the home screen.
+  const installDialog = document.getElementById("install-dialog");
+  const installNever = document.getElementById("install-never");
   const HINT_KEY = "kilojoules.installHintDismissed";
   const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
     (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isStandalone = navigator.standalone === true ||
     matchMedia("(display-mode: standalone)").matches;
-  if (isIOS && !isStandalone && !localStorage.getItem(HINT_KEY)) {
-    installHint.hidden = false;
+  if (isIOS && !isStandalone && !localStorage.getItem(HINT_KEY) && installDialog.showModal) {
+    installDialog.showModal();
   }
-  document.getElementById("install-dismiss").addEventListener("click", () => {
-    localStorage.setItem(HINT_KEY, "1");
-    installHint.hidden = true;
+  installNever.addEventListener("change", () => {
+    if (installNever.checked) localStorage.setItem(HINT_KEY, "1");
+    else localStorage.removeItem(HINT_KEY);
   });
 
   if ("serviceWorker" in navigator) {
