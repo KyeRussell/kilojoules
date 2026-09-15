@@ -7,7 +7,6 @@
   const empty = document.getElementById("empty");
   const editToggle = document.getElementById("edit-toggle");
   const addForm = document.getElementById("add-form");
-  const addPanel = document.getElementById("add");
   const clearButton = document.getElementById("clear");
 
   const numberFormat = new Intl.NumberFormat("en-AU");
@@ -91,17 +90,15 @@
     );
 
     clearButton.hidden = kjInput.value === "";
-    results.hidden = burned === null;
+    const editing = results.classList.contains("is-editing");
+    results.hidden = burned === null && comparisons.length > 0 && !editing;
     empty.hidden = comparisons.length > 0;
     editToggle.hidden = comparisons.length === 0;
-    if (comparisons.length === 0) {
-      setEditing(false);
-      addPanel.open = true;
-    }
+    if (comparisons.length === 0) setEditing(true);
   }
 
   function setEditing(on) {
-    list.classList.toggle("is-editing", on);
+    results.classList.toggle("is-editing", on);
     editToggle.setAttribute("aria-pressed", String(on));
     editToggle.textContent = on ? "Done" : "Edit";
   }
@@ -114,7 +111,8 @@
   });
 
   editToggle.addEventListener("click", () => {
-    setEditing(!list.classList.contains("is-editing"));
+    setEditing(!results.classList.contains("is-editing"));
+    render();
   });
 
   addForm.addEventListener("submit", (event) => {
@@ -133,7 +131,6 @@
     saveComparisons(comparisons);
     addForm.reset();
     addForm.elements.name.blur();
-    addPanel.open = false;
     render();
   });
 

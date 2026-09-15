@@ -257,51 +257,21 @@ h2 {
   color: var(--muted);
 }
 
-.add-card {
-  background: var(--peach);
-  color: #2a1b2e;
-  --ink: #2a1b2e;
-  --muted: #8a5a2e;
-}
-
-.add-card summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.add-card summary::-webkit-details-marker {
-  display: none;
-}
-
-.add-card summary h2 {
-  margin: 0;
-}
-
-.add-card summary::after {
-  content: "+";
-  font-size: 1.4em;
-  font-weight: 800;
-  line-height: 1;
-  transition: transform 0.15s ease;
-}
-
-.add-card[open] summary::after {
-  transform: rotate(45deg);
-}
-
-.add-card[open] summary {
-  margin-bottom: 12px;
-}
-
 .add-form {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 12px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: var(--border) solid var(--edge);
+}
+
+.is-editing .add-form {
+  display: flex;
+}
+
+.add-form h2 {
+  margin: 0;
 }
 
 .add-form label {
@@ -310,6 +280,7 @@ h2 {
   gap: 5px;
   font-size: 1.05em;
   font-weight: 800;
+  color: var(--muted);
 }
 
 .add-form input {
@@ -404,17 +375,10 @@ h2 {
     border-color: var(--pink);
   }
 
-  .add-card {
-    background: var(--paper);
-    color: var(--ink);
-    --ink: #fff1f6;
-    --muted: #c4afc0;
-    border-color: var(--peach);
-    box-shadow: var(--offset) var(--offset) 0 var(--peach);
+  .add-form {
+    border-top-color: #4a3a52;
   }
 
-  .add-card summary h2,
-  .add-card summary::after,
   .add-form label {
     color: var(--peach);
   }
@@ -422,7 +386,7 @@ h2 {
   .add-form input {
     background: var(--bg);
     color: var(--ink);
-    border-color: var(--peach);
+    border-color: var(--lilac);
   }
 
   .add-form input::placeholder {
@@ -431,7 +395,7 @@ h2 {
   }
 
   .add-form input:focus {
-    box-shadow: var(--offset) var(--offset) 0 var(--peach);
+    box-shadow: var(--offset) var(--offset) 0 var(--lilac);
   }
 
   .primary-button {
