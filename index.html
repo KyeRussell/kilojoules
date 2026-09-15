@@ -24,7 +24,6 @@
   <main class="app">
     <header class="hero">
       <h1>Kilojoules</h1>
-      <p class="tagline">How much was that workout, really?</p>
     </header>
 
     <section class="card">
@@ -32,6 +31,7 @@
       <div class="kj-field">
         <input id="kj" type="text" inputmode="decimal" placeholder="0"
                autocomplete="off" enterkeyhint="done" aria-describedby="kj-unit">
+        <button type="button" id="clear" class="clear-button" aria-label="Clear" hidden>×</button>
         <span id="kj-unit" class="unit">kJ</span>
       </div>
     </section>
@@ -47,8 +47,8 @@
       </p>
     </section>
 
-    <section class="card">
-      <h2>Add a comparison</h2>
+    <details id="add" class="card add-card">
+      <summary><h2>Add a comparison</h2></summary>
       <form id="add-form" class="add-form" autocomplete="off">
         <label>
           <span>Name</span>
@@ -62,7 +62,7 @@
         </label>
         <button type="submit" class="primary-button">Save</button>
       </form>
-    </section>
+    </details>
 
     <footer class="foot">
       <p>Everything is stored on this device only.</p>

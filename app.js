@@ -6,6 +6,8 @@
   const empty = document.getElementById("empty");
   const editToggle = document.getElementById("edit-toggle");
   const addForm = document.getElementById("add-form");
+  const addPanel = document.getElementById("add");
+  const clearButton = document.getElementById("clear");
 
   const numberFormat = new Intl.NumberFormat("en-AU");
 
@@ -58,7 +60,7 @@
 
         const kj = document.createElement("div");
         kj.className = "comparison-kj";
-        kj.textContent = `${numberFormat.format(item.kj)} kJ each`;
+        kj.textContent = `${numberFormat.format(item.kj)} kJ`;
 
         info.append(name, kj);
 
@@ -88,9 +90,13 @@
       })
     );
 
+    clearButton.hidden = kjInput.value === "";
     empty.hidden = comparisons.length > 0;
     editToggle.hidden = comparisons.length === 0;
-    if (comparisons.length === 0) setEditing(false);
+    if (comparisons.length === 0) {
+      setEditing(false);
+      addPanel.open = true;
+    }
   }
 
   function setEditing(on) {
@@ -100,6 +106,11 @@
   }
 
   kjInput.addEventListener("input", render);
+
+  clearButton.addEventListener("click", () => {
+    kjInput.value = "";
+    render();
+  });
 
   editToggle.addEventListener("click", () => {
     setEditing(!list.classList.contains("is-editing"));
@@ -121,6 +132,7 @@
     saveComparisons(comparisons);
     addForm.reset();
     addForm.elements.name.blur();
+    addPanel.open = false;
     render();
   });
 
