@@ -33,7 +33,14 @@
 
 html {
   background: var(--bg);
+  font-size: 17px;
   -webkit-text-size-adjust: 100%;
+}
+
+@supports (font: -apple-system-body) {
+  html {
+    font: -apple-system-body;
+  }
 }
 
 body {
@@ -41,7 +48,7 @@ body {
   color: var(--ink);
   background: var(--bg);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 17px;
+  font-size: 1.2rem;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -62,7 +69,7 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.9em;
   font-weight: 900;
   letter-spacing: -0.02em;
 }
@@ -74,7 +81,7 @@ h1::after {
 
 h2 {
   margin: 0 0 8px;
-  font-size: 1rem;
+  font-size: 1.05em;
   font-weight: 800;
 }
 
@@ -95,7 +102,7 @@ h2 {
 
 .field-label {
   display: block;
-  font-size: 1rem;
+  font-size: 1.05em;
   font-weight: 800;
 }
 
@@ -124,7 +131,7 @@ h2 {
   background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 2.8rem;
+  font-size: 2.8em;
   font-weight: 900;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
@@ -139,7 +146,7 @@ h2 {
 }
 
 .unit {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: 800;
 }
 
@@ -148,7 +155,7 @@ h2 {
   border: none;
   padding: 0 0 1px;
   font: inherit;
-  font-size: 1rem;
+  font-size: 1.05em;
   font-weight: 800;
   color: var(--ink);
   border-bottom: var(--border) solid var(--lilac);
@@ -184,18 +191,18 @@ h2 {
 }
 
 .comparison-name {
-  font-size: 1.05rem;
+  font-size: 1.1em;
   font-weight: 700;
   overflow-wrap: anywhere;
 }
 
 .comparison-kj {
-  font-size: 0.95rem;
+  font-size: 1em;
   color: var(--muted);
 }
 
 .comparison-count {
-  font-size: 1.1rem;
+  font-size: 1.15em;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: #2a1b2e;
@@ -221,7 +228,7 @@ h2 {
   border: var(--border) solid var(--edge);
   background: var(--pink);
   color: #2a1b2e;
-  font-size: 1.1rem;
+  font-size: 1.1em;
   font-weight: 800;
   line-height: 1;
   padding: 0;
@@ -267,7 +274,7 @@ h2 {
 
 .add-card summary::after {
   content: "+";
-  font-size: 1.4rem;
+  font-size: 1.4em;
   font-weight: 800;
   line-height: 1;
   transition: transform 0.15s ease;
@@ -291,13 +298,13 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-size: 1rem;
+  font-size: 1.05em;
   font-weight: 800;
 }
 
 .add-form input {
   font: inherit;
-  font-size: 17px;
+  font-size: 1em;
   font-weight: 500;
   color: #2a1b2e;
   background: #fff;
@@ -321,7 +328,7 @@ h2 {
 .primary-button {
   margin-top: 2px;
   font: inherit;
-  font-size: 1rem;
+  font-size: 1.05em;
   font-weight: 800;
   color: #2a1b2e;
   background: var(--pink);
@@ -339,7 +346,7 @@ h2 {
 
 .foot {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1em;
   color: var(--muted);
 }
 
