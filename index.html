@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kilojoules</title>
+  <meta name="description" content="Put the kilojoules from your workout into perspective.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1917" media="(prefers-color-scheme: dark)">
+
+  <!-- PWA / iOS home screen -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Kilojoules">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>Kilojoules</h1>
+      <p class="tagline">How much was that workout, really?</p>
+    </header>
+
+    <section class="card">
+      <label class="field-label" for="kj">Kilojoules burned</label>
+      <div class="kj-field">
+        <input id="kj" type="text" inputmode="decimal" placeholder="0"
+               autocomplete="off" enterkeyhint="done" aria-describedby="kj-unit">
+        <span id="kj-unit" class="unit">kJ</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>That's about…</h2>
+        <button type="button" id="edit-toggle" class="text-button" aria-pressed="false">Edit</button>
+      </div>
+      <ul id="comparisons" class="comparisons" aria-live="polite"></ul>
+      <p id="empty" class="empty" hidden>
+        Nothing to compare against yet. Add something below.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Add a comparison</h2>
+      <form id="add-form" class="add-form" autocomplete="off">
+        <label>
+          <span>Name</span>
+          <input name="name" type="text" placeholder="Big Mac" required
+                 autocapitalize="words" enterkeyhint="next">
+        </label>
+        <label>
+          <span>Kilojoules each</span>
+          <input name="kj" type="text" inputmode="decimal" placeholder="2200" required
+                 enterkeyhint="done">
+        </label>
+        <button type="submit" class="primary-button">Save</button>
+      </form>
+    </section>
+
+    <footer class="foot">
+      <p>Everything is stored on this device only.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

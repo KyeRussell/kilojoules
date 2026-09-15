@@ -1,0 +1,273 @@
+:root {
+  --bg: #f6efe6;
+  --card: #fffdf9;
+  --text: #1f1a17;
+  --muted: #7c716a;
+  --line: #eadfd3;
+  --accent: #d9542b;
+  --accent-soft: #fbe6dd;
+  --danger: #c0392b;
+  --shadow: 0 1px 2px rgba(60, 40, 20, 0.06), 0 8px 24px rgba(60, 40, 20, 0.08);
+  --radius: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1917;
+    --card: #272320;
+    --text: #f3ece4;
+    --muted: #a49a91;
+    --line: #3a3430;
+    --accent: #ff8a5b;
+    --accent-soft: #3b2a22;
+    --danger: #ff6b5b;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 24px) 20px calc(env(safe-area-inset-bottom, 0px) + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero {
+  padding: 8px 4px 4px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.field-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.kj-field {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.kj-field input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  padding: 0;
+  outline: none;
+  caret-color: var(--accent);
+}
+
+.kj-field input::placeholder {
+  color: var(--accent);
+  opacity: 0.3;
+}
+
+.unit {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.comparisons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comparisons li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.comparisons li:first-child {
+  border-top: none;
+}
+
+.comparison-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.comparison-name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.comparison-kj {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.comparison-count {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.comparison-count.is-empty {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.delete-button {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent-soft);
+  color: var(--danger);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.is-editing .delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.add-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.add-form input {
+  font: inherit;
+  font-size: 17px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.add-form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.primary-button {
+  margin-top: 4px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.primary-button:active {
+  filter: brightness(0.92);
+}
+
+.foot {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.foot p {
+  margin: 0;
+}
