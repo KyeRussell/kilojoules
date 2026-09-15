@@ -1,13 +1,13 @@
 :root {
-  --bg: #fff3c4;
-  --paper: #fffdf7;
-  --ink: #111111;
-  --muted: #5a5347;
-  --edge: #111111;
-  --yellow: #ffd23f;
-  --pink: #ff8fb8;
-  --cyan: #7fdcff;
-  --lime: #b8f36a;
+  --bg: #ffe4ee;
+  --paper: #fffafc;
+  --ink: #2a1b2e;
+  --muted: #7a5c74;
+  --edge: #2a1b2e;
+  --yellow: #ffb8d2;
+  --pink: #d9b8ff;
+  --cyan: #ffd9b3;
+  --lime: #c6f5e3;
   --border: 3px;
   --offset: 5px;
   --radius: 10px;
@@ -15,11 +15,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1d1b24;
-    --paper: #2a2733;
-    --ink: #fbf6e9;
-    --muted: #b9b2a3;
-    --edge: #fbf6e9;
+    --bg: #221626;
+    --paper: #332438;
+    --ink: #fff1f6;
+    --muted: #c9b3c4;
+    --edge: #fff1f6;
   }
 }
 
@@ -63,12 +63,17 @@ h1 {
   font-size: 2.1rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  color: #111;
+  color: #2a1b2e;
   background: var(--pink);
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
   box-shadow: var(--offset) var(--offset) 0 var(--edge);
   transform: rotate(-2deg);
+}
+
+h1::after {
+  content: " \2726";
+  color: #ff5fa2;
 }
 
 h2 {
@@ -89,9 +94,9 @@ h2 {
 
 .card--yellow {
   background: var(--yellow);
-  color: #111;
-  --ink: #111;
-  --muted: #5a4a00;
+  color: #2a1b2e;
+  --ink: #2a1b2e;
+  --muted: #7a4560;
 }
 
 .field-label {
@@ -138,7 +143,7 @@ h2 {
   border-radius: 50%;
   border: var(--border) solid var(--edge);
   background: #fff;
-  color: #111;
+  color: #2a1b2e;
   font-size: 1.1rem;
   font-weight: 900;
   line-height: 1;
@@ -218,7 +223,7 @@ h2 {
   font-weight: 900;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  color: #111;
+  color: #2a1b2e;
   background: var(--lime);
   border: var(--border) solid var(--edge);
   border-radius: 999px;
@@ -241,7 +246,7 @@ h2 {
   border-radius: 50%;
   border: var(--border) solid var(--edge);
   background: var(--pink);
-  color: #111;
+  color: #2a1b2e;
   font-size: 1.2rem;
   font-weight: 900;
   line-height: 1;
@@ -269,9 +274,9 @@ h2 {
 
 .add-card {
   background: var(--cyan);
-  color: #111;
-  --ink: #111;
-  --muted: #0c4a5e;
+  color: #2a1b2e;
+  --ink: #2a1b2e;
+  --muted: #8a5a2e;
 }
 
 .add-card summary {
@@ -328,7 +333,7 @@ h2 {
   font: inherit;
   font-size: 17px;
   font-weight: 600;
-  color: #111;
+  color: #2a1b2e;
   background: #fff;
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
@@ -340,7 +345,7 @@ h2 {
 }
 
 .add-form input::placeholder {
-  color: #111;
+  color: #2a1b2e;
   opacity: 0.35;
 }
 
@@ -356,7 +361,7 @@ h2 {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #111;
+  color: #2a1b2e;
   background: var(--yellow);
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
