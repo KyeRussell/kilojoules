@@ -40,6 +40,16 @@
     });
   }
 
+  // Naive English plural: "Big Mac" -> "Big Macs", "Slice of pizza" -> "Slices of pizza".
+  function pluralise(name, count) {
+    if (formatCount(count) === formatCount(1)) return name;
+    const ofIndex = name.indexOf(" of ");
+    if (ofIndex > 0) return pluralise(name.slice(0, ofIndex), count) + name.slice(ofIndex);
+    if (/(s|x|z|ch|sh)$/i.test(name)) return name + "es";
+    if (/[^aeiou]y$/i.test(name)) return name.slice(0, -1) + "ies";
+    return name + "s";
+  }
+
   let comparisons = loadComparisons();
 
   function render() {
@@ -54,22 +64,26 @@
         const info = document.createElement("div");
         info.className = "comparison-info";
 
-        const name = document.createElement("div");
+        const count = document.createElement("span");
+        count.className = "comparison-count";
+        count.hidden = burned === null;
+
+        const name = document.createElement("span");
         name.className = "comparison-name";
-        name.textContent = item.name;
+
+        if (burned === null) {
+          name.textContent = item.name;
+        } else {
+          const times = burned / item.kj;
+          count.textContent = formatCount(times);
+          name.textContent = pluralise(item.name, times);
+        }
+
+        info.append(count, " ", name);
 
         const kj = document.createElement("div");
         kj.className = "comparison-kj";
         kj.textContent = `${numberFormat.format(item.kj)} kJ`;
-
-        info.append(name, kj);
-
-        const count = document.createElement("div");
-        count.className = "comparison-count";
-        count.hidden = burned === null;
-        if (burned !== null) {
-          count.textContent = `× ${formatCount(burned / item.kj)}`;
-        }
 
         const remove = document.createElement("button");
         remove.type = "button";
@@ -84,7 +98,7 @@
           render();
         });
 
-        li.append(info, count, remove);
+        li.append(info, kj, remove);
         return li;
       })
     );
