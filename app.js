@@ -66,17 +66,16 @@
 
         const count = document.createElement("div");
         count.className = "comparison-count";
-        if (burned === null) {
-          count.classList.add("is-empty");
-          count.textContent = "–";
-        } else {
+        count.hidden = burned === null;
+        if (burned !== null) {
           count.textContent = `× ${formatCount(burned / item.kj)}`;
         }
 
         const remove = document.createElement("button");
         remove.type = "button";
         remove.className = "delete-button";
-        remove.textContent = "×";
+        remove.innerHTML =
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
         remove.setAttribute("aria-label", `Remove ${item.name}`);
         remove.addEventListener("click", () => {
           if (!confirm(`Remove "${item.name}"?`)) return;

@@ -216,27 +216,27 @@ h2 {
   white-space: nowrap;
 }
 
-.comparison-count.is-empty {
-  background: transparent;
-  color: var(--muted);
-  border-color: var(--muted);
-  font-weight: 600;
-}
-
 .delete-button {
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 2em;
+  height: 2em;
   border-radius: 50%;
   border: var(--border) solid var(--edge);
   background: var(--pink);
   color: #2a1b2e;
-  font-size: 1.1em;
-  font-weight: 800;
-  line-height: 1;
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.delete-button svg {
+  display: block;
+  width: 0.9em;
+  height: 0.9em;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
 }
 
 .is-editing .delete-button {
@@ -389,11 +389,6 @@ h2 {
     background: transparent;
     color: var(--mint);
     border-color: var(--mint);
-  }
-
-  .comparison-count.is-empty {
-    color: var(--muted);
-    border-color: var(--muted);
   }
 
   .delete-button {
