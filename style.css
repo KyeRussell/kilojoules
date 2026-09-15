@@ -4,12 +4,12 @@
   --ink: #2a1b2e;
   --muted: #7a5c74;
   --edge: #2a1b2e;
-  --yellow: #ffb8d2;
-  --pink: #d9b8ff;
-  --cyan: #ffd9b3;
-  --lime: #c6f5e3;
-  --border: 3px;
-  --offset: 5px;
+  --pink: #ffb8d2;
+  --lilac: #d9b8ff;
+  --peach: #ffd9b3;
+  --mint: #c6f5e3;
+  --border: 2px;
+  --offset: 3px;
   --radius: 10px;
 }
 
@@ -20,10 +20,10 @@
     --ink: #fff1f6;
     --muted: #c4afc0;
     --edge: #fff1f6;
-    --yellow: #ff9ec5;
-    --pink: #c9a6ff;
-    --cyan: #ffc38a;
-    --lime: #9fead0;
+    --pink: #ff9ec5;
+    --lilac: #c9a6ff;
+    --peach: #ffc38a;
+    --mint: #9fead0;
   }
 }
 
@@ -50,29 +50,21 @@ body {
 .app {
   max-width: 480px;
   margin: 0 auto;
-  padding: calc(env(safe-area-inset-top, 0px) + 28px) 20px calc(env(safe-area-inset-bottom, 0px) + 32px);
+  padding: calc(env(safe-area-inset-top, 0px) + 20px) 18px calc(env(safe-area-inset-bottom, 0px) + 28px);
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 14px;
 }
 
 .hero {
-  padding: 4px 4px 6px;
+  padding: 0 2px;
 }
 
 h1 {
-  display: inline-block;
   margin: 0;
-  padding: 6px 14px;
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  color: #2a1b2e;
-  background: var(--pink);
-  border: var(--border) solid var(--edge);
-  border-radius: var(--radius);
-  box-shadow: var(--offset) var(--offset) 0 var(--edge);
-  transform: rotate(-2deg);
 }
 
 h1::after {
@@ -81,23 +73,21 @@ h1::after {
 }
 
 h2 {
-  margin: 0 0 12px;
-  font-size: 0.95rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 .card {
   background: var(--paper);
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
-  padding: 18px 20px;
+  padding: 14px 16px;
   box-shadow: var(--offset) var(--offset) 0 var(--edge);
 }
 
 .card--yellow {
-  background: var(--yellow);
+  background: var(--pink);
   color: #2a1b2e;
   --ink: #2a1b2e;
   --muted: #7a4560;
@@ -105,17 +95,25 @@ h2 {
 
 .field-label {
   display: block;
-  font-size: 0.95rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.section-head h2 {
+  margin-bottom: 8px;
 }
 
 .kj-field {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
 }
 
 .kj-field input {
@@ -126,7 +124,7 @@ h2 {
   background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 3.4rem;
+  font-size: 2.8rem;
   font-weight: 900;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
@@ -141,36 +139,19 @@ h2 {
 }
 
 .unit {
-  font-size: 1.4rem;
-  font-weight: 900;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-}
-
-.section-head .field-label {
-  margin-bottom: 0;
-}
-
-.section-head + .kj-field {
-  margin-top: 4px;
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .text-button {
   background: none;
   border: none;
-  padding: 0 0 2px;
+  padding: 0 0 1px;
   font: inherit;
-  font-size: 0.95rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--ink);
-  border-bottom: var(--border) solid var(--pink);
+  border-bottom: var(--border) solid var(--lilac);
   cursor: pointer;
 }
 
@@ -183,14 +164,18 @@ h2 {
 .comparisons li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-top: 2px dashed var(--edge);
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid var(--muted);
 }
 
 .comparisons li:first-child {
   border-top: none;
-  padding-top: 4px;
+  padding-top: 2px;
+}
+
+.comparisons li:last-child {
+  padding-bottom: 2px;
 }
 
 .comparison-info {
@@ -199,56 +184,49 @@ h2 {
 }
 
 .comparison-name {
-  font-weight: 800;
+  font-size: 1.05rem;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
 .comparison-kj {
   font-size: 0.95rem;
-  font-weight: 600;
   color: var(--muted);
 }
 
 .comparison-count {
-  font-size: 1.2rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  font-size: 1.1rem;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
   color: #2a1b2e;
-  background: var(--lime);
+  background: var(--mint);
   border: var(--border) solid var(--edge);
   border-radius: 999px;
-  padding: 2px 12px;
-  box-shadow: 3px 3px 0 var(--edge);
+  padding: 2px 10px;
   white-space: nowrap;
 }
 
 .comparison-count.is-empty {
-  background: var(--paper);
+  background: transparent;
   color: var(--muted);
+  border-color: var(--muted);
   font-weight: 600;
-  box-shadow: none;
 }
 
 .delete-button {
   display: none;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: var(--border) solid var(--edge);
   background: var(--pink);
   color: #2a1b2e;
-  font-size: 1.2rem;
-  font-weight: 900;
+  font-size: 1.1rem;
+  font-weight: 800;
   line-height: 1;
+  padding: 0;
   cursor: pointer;
   flex-shrink: 0;
-  box-shadow: 2px 2px 0 var(--edge);
-}
-
-.delete-button:active {
-  transform: translate(2px, 2px);
-  box-shadow: none;
 }
 
 .is-editing .delete-button {
@@ -260,11 +238,10 @@ h2 {
 .empty {
   margin: 0;
   color: var(--muted);
-  font-weight: 600;
 }
 
 .add-card {
-  background: var(--cyan);
+  background: var(--peach);
   color: #2a1b2e;
   --ink: #2a1b2e;
   --muted: #8a5a2e;
@@ -290,8 +267,8 @@ h2 {
 
 .add-card summary::after {
   content: "+";
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.4rem;
+  font-weight: 800;
   line-height: 1;
   transition: transform 0.15s ease;
 }
@@ -301,38 +278,35 @@ h2 {
 }
 
 .add-card[open] summary {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .add-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .add-form label {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-size: 0.9rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  gap: 5px;
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 .add-form input {
   font: inherit;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
   color: #2a1b2e;
   background: #fff;
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
-  padding: 12px 14px;
+  padding: 10px 12px;
   outline: none;
   -webkit-appearance: none;
   appearance: none;
-  box-shadow: 3px 3px 0 var(--edge);
 }
 
 .add-form input::placeholder {
@@ -341,22 +315,19 @@ h2 {
 }
 
 .add-form input:focus {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 var(--edge);
+  box-shadow: var(--offset) var(--offset) 0 var(--edge);
 }
 
 .primary-button {
-  margin-top: 6px;
+  margin-top: 2px;
   font: inherit;
   font-size: 1rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-weight: 800;
   color: #2a1b2e;
-  background: var(--yellow);
+  background: var(--pink);
   border: var(--border) solid var(--edge);
   border-radius: var(--radius);
-  padding: 14px;
+  padding: 12px;
   cursor: pointer;
   box-shadow: var(--offset) var(--offset) 0 var(--edge);
 }
@@ -369,7 +340,6 @@ h2 {
 .foot {
   text-align: center;
   font-size: 0.9rem;
-  font-weight: 600;
   color: var(--muted);
 }
 
@@ -377,19 +347,11 @@ h2 {
   margin: 0;
 }
 
-/* Dark mode: keep the outlines-and-shadows structure, but colour the
-   outlines instead of filling the cards. */
+/* Dark mode: dark cards with coloured outlines. */
 @media (prefers-color-scheme: dark) {
-  h1 {
-    background: var(--paper);
-    color: var(--pink);
-    border-color: var(--pink);
-    box-shadow: var(--offset) var(--offset) 0 var(--pink);
-  }
-
   .card {
-    border-color: var(--pink);
-    box-shadow: var(--offset) var(--offset) 0 var(--pink);
+    border-color: var(--lilac);
+    box-shadow: var(--offset) var(--offset) 0 var(--lilac);
   }
 
   .card--yellow {
@@ -397,27 +359,26 @@ h2 {
     color: var(--ink);
     --ink: #fff1f6;
     --muted: #c4afc0;
-    border-color: var(--yellow);
-    box-shadow: var(--offset) var(--offset) 0 var(--yellow);
+    border-color: var(--pink);
+    box-shadow: var(--offset) var(--offset) 0 var(--pink);
   }
 
   .card--yellow .field-label {
-    color: var(--yellow);
+    color: var(--pink);
   }
 
   .card--yellow .text-button {
-    border-bottom-color: var(--yellow);
+    border-bottom-color: var(--pink);
   }
 
   .comparisons li {
-    border-top-color: var(--muted);
+    border-top-color: #4a3a52;
   }
 
   .comparison-count {
-    background: var(--paper);
-    color: var(--lime);
-    border-color: var(--lime);
-    box-shadow: 3px 3px 0 var(--lime);
+    background: transparent;
+    color: var(--mint);
+    border-color: var(--mint);
   }
 
   .comparison-count.is-empty {
@@ -426,10 +387,9 @@ h2 {
   }
 
   .delete-button {
-    background: var(--paper);
-    color: var(--yellow);
-    border-color: var(--yellow);
-    box-shadow: 2px 2px 0 var(--yellow);
+    background: transparent;
+    color: var(--pink);
+    border-color: var(--pink);
   }
 
   .add-card {
@@ -437,21 +397,20 @@ h2 {
     color: var(--ink);
     --ink: #fff1f6;
     --muted: #c4afc0;
-    border-color: var(--cyan);
-    box-shadow: var(--offset) var(--offset) 0 var(--cyan);
+    border-color: var(--peach);
+    box-shadow: var(--offset) var(--offset) 0 var(--peach);
   }
 
   .add-card summary h2,
   .add-card summary::after,
   .add-form label {
-    color: var(--cyan);
+    color: var(--peach);
   }
 
   .add-form input {
     background: var(--bg);
     color: var(--ink);
-    border-color: var(--cyan);
-    box-shadow: 3px 3px 0 var(--cyan);
+    border-color: var(--peach);
   }
 
   .add-form input::placeholder {
@@ -460,13 +419,13 @@ h2 {
   }
 
   .add-form input:focus {
-    box-shadow: 2px 2px 0 var(--cyan);
+    box-shadow: var(--offset) var(--offset) 0 var(--peach);
   }
 
   .primary-button {
-    background: var(--yellow);
+    background: var(--pink);
     color: #1a1220;
-    border-color: var(--yellow);
+    border-color: var(--pink);
     box-shadow: var(--offset) var(--offset) 0 var(--ink);
   }
 }
