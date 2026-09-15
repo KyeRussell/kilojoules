@@ -141,7 +141,7 @@
   // in Safari on an iPhone or iPad rather than from the home screen.
   const installDialog = document.getElementById("install-dialog");
   const installNever = document.getElementById("install-never");
-  const HINT_KEY = "kilojoules.installHintDismissed";
+  const HINT_KEY = "kilojoules.installDialogHidden";
   const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
     (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   const isStandalone = navigator.standalone === true ||
