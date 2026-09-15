@@ -40,16 +40,6 @@
     });
   }
 
-  // Naive English plural: "Big Mac" -> "Big Macs", "Slice of pizza" -> "Slices of pizza".
-  function pluralise(name, count) {
-    if (formatCount(count) === formatCount(1)) return name;
-    const ofIndex = name.indexOf(" of ");
-    if (ofIndex > 0) return pluralise(name.slice(0, ofIndex), count) + name.slice(ofIndex);
-    if (/(s|x|z|ch|sh)$/i.test(name)) return name + "es";
-    if (/[^aeiou]y$/i.test(name)) return name.slice(0, -1) + "ies";
-    return name + "s";
-  }
-
   let comparisons = loadComparisons();
 
   function render() {
@@ -71,12 +61,9 @@
         const name = document.createElement("span");
         name.className = "comparison-name";
 
-        if (burned === null) {
-          name.textContent = item.name;
-        } else {
-          const times = burned / item.kj;
-          count.textContent = formatCount(times);
-          name.textContent = pluralise(item.name, times);
+        name.textContent = item.name;
+        if (burned !== null) {
+          count.textContent = `${formatCount(burned / item.kj)} ×`;
         }
 
         info.append(count, " ", name);
