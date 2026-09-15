@@ -398,9 +398,9 @@ h2 {
   }
 
   .primary-button {
-    background: var(--pink);
-    color: #1a1220;
+    background: var(--paper);
+    color: var(--pink);
     border-color: var(--pink);
-    box-shadow: var(--offset) var(--offset) 0 var(--ink);
+    box-shadow: var(--offset) var(--offset) 0 var(--pink);
   }
 }
