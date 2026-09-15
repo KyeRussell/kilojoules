@@ -137,6 +137,22 @@
 
   render();
 
+  // iOS has no install prompt API, so show a hint when running in Safari
+  // on an iPhone or iPad rather than from the home screen.
+  const installHint = document.getElementById("install-hint");
+  const HINT_KEY = "kilojoules.installHintDismissed";
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isStandalone = navigator.standalone === true ||
+    matchMedia("(display-mode: standalone)").matches;
+  if (isIOS && !isStandalone && !localStorage.getItem(HINT_KEY)) {
+    installHint.hidden = false;
+  }
+  document.getElementById("install-dismiss").addEventListener("click", () => {
+    localStorage.setItem(HINT_KEY, "1");
+    installHint.hidden = true;
+  });
+
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }

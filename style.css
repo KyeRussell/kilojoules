@@ -324,6 +324,35 @@ h2 {
   box-shadow: none;
 }
 
+.install-hint {
+  background: var(--lilac);
+  color: #2a1b2e;
+  --ink: #2a1b2e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.install-hint p {
+  margin: 0;
+}
+
+.install-hint .text-button {
+  text-decoration-color: var(--pink);
+}
+
+.share-icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
 .foot {
   text-align: center;
   font-size: 1em;
@@ -372,6 +401,14 @@ h2 {
     background: transparent;
     color: var(--pink);
     border-color: var(--pink);
+  }
+
+  .install-hint {
+    background: var(--paper);
+    color: var(--ink);
+    --ink: #fff1f6;
+    border-color: var(--lilac);
+    box-shadow: var(--offset) var(--offset) 0 var(--lilac);
   }
 
   .add-form {
