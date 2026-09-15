@@ -74,9 +74,12 @@ h1 {
   letter-spacing: -0.02em;
 }
 
-h1::after {
-  content: " \2726";
-  color: #ff5fa2;
+.sparkle {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.3em;
+  vertical-align: -0.05em;
+  fill: #ff5fa2;
 }
 
 h2 {
