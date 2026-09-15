@@ -1,27 +1,25 @@
 :root {
-  --bg: #f6efe6;
-  --card: #fffdf9;
-  --text: #1f1a17;
-  --muted: #7c716a;
-  --line: #eadfd3;
-  --accent: #d9542b;
-  --accent-soft: #fbe6dd;
-  --danger: #c0392b;
-  --shadow: 0 1px 2px rgba(60, 40, 20, 0.06), 0 8px 24px rgba(60, 40, 20, 0.08);
-  --radius: 18px;
+  --bg: #fff3c4;
+  --paper: #fffdf7;
+  --ink: #111111;
+  --muted: #5a5347;
+  --edge: #111111;
+  --yellow: #ffd23f;
+  --pink: #ff8fb8;
+  --cyan: #7fdcff;
+  --lime: #b8f36a;
+  --border: 3px;
+  --offset: 5px;
+  --radius: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1b1917;
-    --card: #272320;
-    --text: #f3ece4;
-    --muted: #a49a91;
-    --line: #3a3430;
-    --accent: #ff8a5b;
-    --accent-soft: #3b2a22;
-    --danger: #ff6b5b;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --bg: #1d1b24;
+    --paper: #2a2733;
+    --ink: #fbf6e9;
+    --muted: #b9b2a3;
+    --edge: #fbf6e9;
   }
 }
 
@@ -36,9 +34,9 @@ html {
 
 body {
   margin: 0;
-  color: var(--text);
+  color: var(--ink);
   background: var(--bg);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 17px;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
@@ -48,42 +46,61 @@ body {
 .app {
   max-width: 480px;
   margin: 0 auto;
-  padding: calc(env(safe-area-inset-top, 0px) + 24px) 20px calc(env(safe-area-inset-bottom, 0px) + 32px);
+  padding: calc(env(safe-area-inset-top, 0px) + 28px) 20px calc(env(safe-area-inset-bottom, 0px) + 32px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
 }
 
 .hero {
-  padding: 8px 4px 4px;
+  padding: 4px 4px 6px;
 }
 
 h1 {
+  display: inline-block;
   margin: 0;
-  font-size: 2rem;
-  font-weight: 800;
+  padding: 6px 14px;
+  font-size: 2.1rem;
+  font-weight: 900;
   letter-spacing: -0.02em;
+  color: #111;
+  background: var(--pink);
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
+  box-shadow: var(--offset) var(--offset) 0 var(--edge);
+  transform: rotate(-2deg);
 }
 
 h2 {
   margin: 0 0 12px;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .card {
-  background: var(--card);
+  background: var(--paper);
+  border: var(--border) solid var(--edge);
   border-radius: var(--radius);
   padding: 18px 20px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--offset) var(--offset) 0 var(--edge);
+}
+
+.card--yellow {
+  background: var(--yellow);
+  color: #111;
+  --ink: #111;
+  --muted: #5a4a00;
 }
 
 .field-label {
   display: block;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
 }
 
 .kj-field {
@@ -98,41 +115,47 @@ h2 {
   width: 100%;
   border: none;
   background: transparent;
-  color: var(--accent);
+  color: var(--ink);
   font: inherit;
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: 3.4rem;
+  font-weight: 900;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
   padding: 0;
   outline: none;
-  caret-color: var(--accent);
+  caret-color: var(--ink);
 }
 
 .kj-field input::placeholder {
-  color: var(--accent);
-  opacity: 0.3;
+  color: var(--ink);
+  opacity: 0.25;
 }
 
 .clear-button {
   align-self: center;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  border: none;
-  background: var(--line);
-  color: var(--muted);
+  border: var(--border) solid var(--edge);
+  background: #fff;
+  color: #111;
   font-size: 1.1rem;
+  font-weight: 900;
   line-height: 1;
   padding: 0;
   cursor: pointer;
   flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--edge);
+}
+
+.clear-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .unit {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--muted);
+  font-size: 1.4rem;
+  font-weight: 900;
 }
 
 .section-head {
@@ -144,10 +167,14 @@ h2 {
 .text-button {
   background: none;
   border: none;
-  padding: 4px 0;
+  padding: 0 0 2px;
   font: inherit;
-  font-weight: 600;
-  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  border-bottom: var(--border) solid var(--pink);
   cursor: pointer;
 }
 
@@ -162,11 +189,12 @@ h2 {
   align-items: center;
   gap: 12px;
   padding: 12px 0;
-  border-top: 1px solid var(--line);
+  border-top: 2px dashed var(--edge);
 }
 
 .comparisons li:first-child {
   border-top: none;
+  padding-top: 4px;
 }
 
 .comparison-info {
@@ -175,41 +203,56 @@ h2 {
 }
 
 .comparison-name {
-  font-weight: 600;
+  font-weight: 800;
   overflow-wrap: anywhere;
 }
 
 .comparison-kj {
   font-size: 0.85rem;
+  font-weight: 600;
   color: var(--muted);
 }
 
 .comparison-count {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 900;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
-  color: var(--accent);
+  color: #111;
+  background: var(--lime);
+  border: var(--border) solid var(--edge);
+  border-radius: 999px;
+  padding: 2px 12px;
+  box-shadow: 3px 3px 0 var(--edge);
   white-space: nowrap;
 }
 
 .comparison-count.is-empty {
+  background: var(--paper);
   color: var(--muted);
-  font-weight: 500;
+  font-weight: 600;
+  box-shadow: none;
 }
 
 .delete-button {
   display: none;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  border: none;
-  background: var(--accent-soft);
-  color: var(--danger);
+  border: var(--border) solid var(--edge);
+  background: var(--pink);
+  color: #111;
   font-size: 1.2rem;
+  font-weight: 900;
   line-height: 1;
   cursor: pointer;
   flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--edge);
+}
+
+.delete-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .is-editing .delete-button {
@@ -221,6 +264,14 @@ h2 {
 .empty {
   margin: 0;
   color: var(--muted);
+  font-weight: 600;
+}
+
+.add-card {
+  background: var(--cyan);
+  color: #111;
+  --ink: #111;
+  --muted: #0c4a5e;
 }
 
 .add-card summary {
@@ -243,9 +294,8 @@ h2 {
 
 .add-card summary::after {
   content: "+";
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 900;
   line-height: 1;
   transition: transform 0.15s ease;
 }
@@ -255,7 +305,7 @@ h2 {
 }
 
 .add-card[open] summary {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .add-form {
@@ -268,48 +318,62 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .add-form input {
   font: inherit;
   font-size: 17px;
-  color: var(--text);
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  font-weight: 600;
+  color: #111;
+  background: #fff;
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
   padding: 12px 14px;
   outline: none;
   -webkit-appearance: none;
   appearance: none;
+  box-shadow: 3px 3px 0 var(--edge);
+}
+
+.add-form input::placeholder {
+  color: #111;
+  opacity: 0.35;
 }
 
 .add-form input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--edge);
 }
 
 .primary-button {
-  margin-top: 4px;
+  margin-top: 6px;
   font: inherit;
-  font-weight: 700;
-  color: #fff;
-  background: var(--accent);
-  border: none;
-  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #111;
+  background: var(--yellow);
+  border: var(--border) solid var(--edge);
+  border-radius: var(--radius);
   padding: 14px;
   cursor: pointer;
+  box-shadow: var(--offset) var(--offset) 0 var(--edge);
 }
 
 .primary-button:active {
-  filter: brightness(0.92);
+  transform: translate(var(--offset), var(--offset));
+  box-shadow: none;
 }
 
 .foot {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--muted);
 }
 
