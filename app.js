@@ -2,6 +2,7 @@
   const STORAGE_KEY = "kilojoules.comparisons";
 
   const kjInput = document.getElementById("kj");
+  const results = document.getElementById("results");
   const list = document.getElementById("comparisons");
   const empty = document.getElementById("empty");
   const editToggle = document.getElementById("edit-toggle");
@@ -90,6 +91,7 @@
     );
 
     clearButton.hidden = kjInput.value === "";
+    results.hidden = burned === null;
     empty.hidden = comparisons.length > 0;
     editToggle.hidden = comparisons.length === 0;
     if (comparisons.length === 0) {
