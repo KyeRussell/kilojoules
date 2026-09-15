@@ -156,12 +156,17 @@ h2 {
 .text-button {
   background: none;
   border: none;
-  padding: 0 0 1px;
+  padding: 0.5em 0.5em;
+  margin: -0.5em -0.5em;
+  min-height: 44px;
   font: inherit;
   font-size: 1.05em;
   font-weight: 800;
   color: var(--ink);
-  border-bottom: var(--border) solid var(--lilac);
+  text-decoration: underline;
+  text-decoration-color: var(--lilac);
+  text-decoration-thickness: var(--border);
+  text-underline-offset: 0.2em;
   cursor: pointer;
 }
 
@@ -175,7 +180,7 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 0;
+  padding: 6px 0;
   border-top: 1px solid var(--muted);
 }
 
@@ -218,8 +223,10 @@ h2 {
 
 .delete-button {
   display: none;
-  width: 2em;
-  height: 2em;
+  width: 2.4em;
+  height: 2.4em;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
   border: var(--border) solid var(--edge);
   background: var(--pink);
@@ -231,8 +238,8 @@ h2 {
 
 .delete-button svg {
   display: block;
-  width: 0.9em;
-  height: 0.9em;
+  width: 1em;
+  height: 1em;
   stroke: currentColor;
   stroke-width: 3;
   stroke-linecap: round;
@@ -378,7 +385,7 @@ h2 {
   }
 
   .card--yellow .text-button {
-    border-bottom-color: var(--pink);
+    text-decoration-color: var(--pink);
   }
 
   .comparisons li {
