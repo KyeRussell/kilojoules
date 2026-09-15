@@ -27,11 +27,13 @@
     </header>
 
     <section class="card card--yellow">
-      <label class="field-label" for="kj">Kilojoules burned</label>
+      <div class="section-head">
+        <label class="field-label" for="kj">Kilojoules burned</label>
+        <button type="button" id="clear" class="text-button" hidden>Clear</button>
+      </div>
       <div class="kj-field">
         <input id="kj" type="text" inputmode="decimal" placeholder="0"
                autocomplete="off" enterkeyhint="done" aria-describedby="kj-unit">
-        <button type="button" id="clear" class="clear-button" aria-label="Clear" hidden>×</button>
         <span id="kj-unit" class="unit">kJ</span>
       </div>
     </section>
